@@ -1,1 +1,18 @@
 {% extends "posts_div.html" %} {% block title %}Home{% endblock %}
+
+<div class="collapse navbar-collapse" id="navbar">
+    <div class="navbar-nav">
+      <a class="nav-link" href="/home" style="color: pink; padding-right:10.35cm;"></a>
+      <a class="nav-link" href="/home" style="color: black;">Home</a>
+      {% if user.is_authenticated %}
+      <a class="nav-item nav-link" href="/logout">Logout</a>
+      {% else %}
+      <a class="nav-item nav-link" href="/login"  style="color: black;" >Login</a>
+      <a class="nav-item nav-link" href="/sign-up" style="color: black;">Sign Up</a>
+      <a class="nav-item nav-link" href="/News" style="color: black;">News</a>
+      <a class="nav-item nav-link" href="/Upadtes" style="color: black;">Updates</a>
+      <a class="nav-item nav-link" href="/Careers" style="color: black;">Careers</a>
+     
+      {% endif %}
+      <img src="/covea-banner.png" alt="Girl in a jacket" style="width:0px;height:0px;">
+    </div>

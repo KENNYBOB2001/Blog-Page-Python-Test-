@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
+    
     <h1 align="center">{% block header %}Posts{% endblock %}</h1>
     <div id="posts">
       {% for post in posts %}
@@ -16,6 +17,7 @@
             <ul class="dropdown-menu">
               <li>
                 <a href="/delete-post/{{post.id}}" class="dropdown-item">Delete</a>
+                <a href="/edit-post/{{post.id}}" class="dropdown-item">Edit</a>
               </li>
             </ul>
           </div>
@@ -33,7 +35,8 @@
       <a href="/create-post"
         ><button type="button" class="btn btn-primary btn-lg">
           Create a Post
-        </button></a
-      >
+        </button></a>
+        
     </div>
+    
     {% endblock %} {% endblock %}

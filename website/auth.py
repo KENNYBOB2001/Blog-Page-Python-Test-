@@ -5,18 +5,18 @@ from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint("auth", __name__)
-
+#Registering this file into the init.py
 
 @auth.route("/login", methods=['GET', 'POST'])
 def login():
+    #URL page for login 
     if request.method == 'POST':
         email = request.form.get("email")
         password = request.form.get("password")
-
+  #Requests data from the sign-up method when the user does a push request
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash("Logged in!", category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
@@ -29,12 +29,14 @@ def login():
 
 @auth.route("/sign-up", methods=['GET', 'POST'])
 def sign_up():
+     #URL page for sign up
     if request.method == 'POST':
         email = request.form.get("email")
         username = request.form.get("username")
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
-
+        password2 = request.form.get("password2")
+  #Requests data from the sign-up method when the user does a push request
         email_exists = User.query.filter_by(email=email).first()
         username_exists = User.query.filter_by(username=username).first()
 
